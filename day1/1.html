@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<style>
+    .red1{
+        color: red;
+    }
+    .red2{
+        color: green;
+    }
+    .red3{
+        color: blue;
+    }
+</style>
+<div id="div1">
+    <h1 v-bind:class="'red'+n">red{{n}}:{{model1}}</h1>
+    <input type="text" v-model="model1">
+    //双向数据绑定
+    <br>
+    <h2 id="once1" v-once>{{model1}}</h2>
+    //v-once数据只绑定一次
+    <h2 v-html="html"></h2>
+    <input type="text" v-model="n">
+</div>
+<script>
+    const app = new Vue({
+        el: '#div1',
+        data: {
+            h1: "niujunzhe",
+            n:1,
+            model1:'v-model',
+            html:'<h1 style="color: blue">v-html</h1>'
+        }
+    });
+</script>
+</body>
+</html>
