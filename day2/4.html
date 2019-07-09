@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<style>
+    .red{
+        color: red;
+    }
+    .green{
+        color: green;
+    }
+</style>
+<div id="app">
+    <span v-for="v in newdata">
+        <li>
+            <span :class="v.status? 'green' : 'red' ">{{v.title}}------{{v.status}}</span>
+            <button @click="changeStatus(v,false)" v-if="v.status">删除</button>
+            <button @click="changeStatus(v,true)" v-if="!v.status">恢复</button>
+        </li>
+    </span>
+</div>
+<script>
+    var app = new Vue({
+        el :'#app',
+        data:{
+            newdata:[{title:123,status:true},{title:456,status:true},{title:789,status:true}]
+        },
+        methods:{
+            changeStatus: function (v,status) {
+                v.status = status;
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <template v-if="check=='phone'" >
+        电话<input type="text" key="phone-temp">
+    </template>
+    <template v-if="check=='mail'">
+        邮箱<input type="text" key="mail-temp" >
+    </template>
+    <br>
+    <input type="radio" value="phone" v-model="check">电话<br>
+    <input type="radio" value="mail" v-model="check">邮箱<br>
+
+</div>
+<script>
+    var app = new Vue({
+        el :'#app',
+        data:{
+            check:'mail'
+        }
+    });
+</script>
+</body>
+</html>

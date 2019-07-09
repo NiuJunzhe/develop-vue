@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <span v-for="v in newdata">
+        <li>
+            <span>{{v.title}}---{{v.sex}}</span>
+        </li>
+    </span>
+    {{sexType}}
+        <input type="radio" v-model="sexType" value="girl">女
+        <input type="radio" v-model="sexType" value="boy">男
+</div>
+<script>
+    var app = new Vue({
+        el :'#app',
+        computed:{
+            stus() {
+                if(this.sexType=='all'){
+                    return this.newdata;
+                    console.log(this.sexType)
+                }else{
+                    return this.newdata.filter((v)=> {
+                        return v.sex == this.sexType;
+                        console.log(this.sexType);
+                    });
+                }
+            }
+        },
+        data:{
+            sexType:'all',
+            newdata:[{title:'niu',sex:'girl'},{title:'jun',sex:'boy'},{title:'zhe',sex:'girl'}]
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="check" > 接受注册协议 <br>
+    <span v-if="check">请选择勾选接受注册协议</span>
+    <button v-else>注册</button>
+</div>
+<script>
+    var app = new Vue({
+        el :'#app',
+        data:{
+            check:false
+        }
+    });
+</script>
+</body>
+</html>
